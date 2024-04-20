@@ -8,15 +8,20 @@
 </head>
 <body>
     <p>O vídeo do Instagram será exibido abaixo e será atualizado automaticamente a cada 10 segundos:</p>
-    <div id="instagram-video"></div>
+    <iframe id="instagram-video" src="https://www.instagram.com/reel/C51NBxGAKpU/embed" width="500" height="600" frameborder="0"></iframe>
 
     <script>
-        fetch("https://api.instagram.com/oembed?url=https://www.instagram.com/reel/C51NBxGAKpU/")
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById("instagram-video").innerHTML = data.html;
-        })
-        .catch(error => console.error('Erro ao carregar o vídeo:', error));
+        // Função para iniciar a reprodução do vídeo
+        function playInstagramVideo() {
+            var iframe = document.getElementById("instagram-video");
+            iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+        }
+
+        // Chama a função playInstagramVideo após a página ser completamente carregada
+        window.onload = function() {
+            playInstagramVideo();
+        };
     </script>
 </body>
 </html>
+
