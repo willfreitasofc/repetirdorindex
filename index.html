@@ -5,23 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vídeo do Instagram com Atualização Automática</title>
     <meta http-equiv="refresh" content="10">
+    <script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>
 </head>
 <body>
     <p>O vídeo do Instagram será exibido abaixo e será atualizado automaticamente a cada 10 segundos:</p>
-    <iframe id="instagram-video" src="https://www.instagram.com/reel/C51NBxGAKpU/embed" width="500" height="600" frameborder="0"></iframe>
-
-    <script>
-        // Função para iniciar a reprodução do vídeo
-        function playInstagramVideo() {
-            var iframe = document.getElementById("instagram-video");
-            iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
-        }
-
-        // Chama a função playInstagramVideo após a página ser completamente carregada
-        window.onload = function() {
-            playInstagramVideo();
-        };
-    </script>
+    <div class="embedly-container" data-card-controls="0">
+        <a href="https://www.instagram.com/reel/C51NBxGAKpU/" class="embedly-card">Instagram Post</a>
+    </div>
 </body>
 </html>
-
